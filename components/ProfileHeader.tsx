@@ -18,9 +18,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
   const roleOptions = ['CHURCH SINGER', 'ROCK SINGER'];
 
   return (
-    <div className="bg-gray-900  text-white px-4 sm:px-6 md:px-8 py-6 rounded-b-2xl -mt-1 border border-t-8 border-t-gray-900 rounded-t-2xl mx-4 sm:mx-6 md:mx-8">
+    <div className="bg-gray-900  text-white px-4 sm:px-6 md:px-8 py-6 rounded-b-2xl -mt-1 border border-t-8 border-t-gray-900 rounded-t-2xl mx-4 sm:mx-6 md:mx-8 lg:-mx-4">
       <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-0">
-        {/* Left: Avatar + Info + Tabs */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 w-full">
           <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-gray-600 flex-shrink-0 border-4 border-white">
           <Image
@@ -46,7 +45,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
               </div>
             </div>
 
-            {/* 🔽 Mobile Dropdown Tabs */}
+            {/*  Mobile Dropdown Tabs */}
             <div className="w-full sm:w-auto block md:hidden mb-4">
               <select
                 value={activeTab}
@@ -61,7 +60,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
               </select>
             </div>
 
-            {/* ➡️ Desktop Tabs */}
+            {/*  Desktop Tabs */}
             <div className="hidden md:flex space-x-8">
               {headerTabs.map((tab) => (
                 <button
@@ -81,7 +80,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
           </div>
         </div>
 
-        {/* Right: Dropdown + Book Now + Pricing */}
+  
         <div className="flex flex-col sm:items-end items-center gap-3 text-right w-full md:w-auto">
           {/* Role Dropdown */}
           <div className="relative w-full sm:w-auto text-center sm:text-right">
@@ -111,12 +110,10 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
             )}
           </div>
 
-          {/* Book Now Button */}
           <button className="px-6 py-2 bg-white text-gray-900 rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors w-full sm:w-auto">
             BOOK NOW
           </button>
 
-          {/* Pricing */}
           <div className="text-center sm:text-right">
             <div className="text-lg font-semibold">
               $100-$400

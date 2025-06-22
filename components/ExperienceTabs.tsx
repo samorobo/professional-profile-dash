@@ -35,7 +35,7 @@ const ExperienceTabs: React.FC<ExperienceTabsProps> = ({
   onExperienceClick 
 }) => (
   <div className="w-full">
-    {/* Tab Navigation - Responsive */}
+
     <div className="border-b border-gray-200 mb-6">
       {/* Desktop View */}
       <nav className="hidden md:flex md:space-x-12">
@@ -54,7 +54,7 @@ const ExperienceTabs: React.FC<ExperienceTabsProps> = ({
         ))}
       </nav>
 
-      {/* Mobile View - Horizontal Scrollable Carousel */}
+  
       <nav className="md:hidden">
         <div className="flex overflow-x-auto scrollbar-hide pb-3 -mb-px">
           <div className="flex space-x-6 px-4 min-w-max">
@@ -76,9 +76,9 @@ const ExperienceTabs: React.FC<ExperienceTabsProps> = ({
       </nav>
     </div>
 
-    {/* Experience Cards Grid - Responsive */}
+
     <div className="w-full">
-      {/* Desktop/Tablet - Grid Layout */}
+
       <div className="hidden sm:flex sm:flex-col sm:gap-6">
         {experiences.map((exp, idx) => (
           <ExperienceCard 
@@ -90,7 +90,7 @@ const ExperienceTabs: React.FC<ExperienceTabsProps> = ({
         ))}
       </div>
 
-      {/* Mobile - Single Column with Proper Spacing */}
+
       <div className="flex flex-col gap-4 sm:hidden">
         {experiences.map((exp, idx) => (
           <div key={idx} className="w-full">

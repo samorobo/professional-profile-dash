@@ -34,7 +34,7 @@ const experienceData = [
 
 const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const [activeSidebar, setActiveSidebar] = useState(0);
-  const [activeTab, setActiveTab] = useState('Training');
+  const [activeTab, setActiveTab] = useState('About');
   const [selectedExperience, setSelectedExperience] = useState({ index: 0 });
   const [showProgramInfo, setShowProgramInfo] = useState(false);
 
@@ -50,9 +50,9 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
 
   return (
     <Layout title="Professional Profile Dashboard - Anthony Fernandes">
-      <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="min-h-screen bg-gray-50 flex flex-col ">
         {/* Top Nav */}
-        <div className="bg-white border px-4 py-3 flex items-center justify-between">
+        <div className="bg-white border px-4 py-3 flex items-center justify-between  border-b-0">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gray-900 rounded-full flex items-center justify-center text-white text-sm font-bold">
               A
