@@ -42,6 +42,5 @@ const ExperienceTabs: React.FC<ExperienceTabsProps> = ({ activeTab, onTabChange,
       ))}
     </div>
   </div>
-);
 
 export default ExperienceTabs; 
