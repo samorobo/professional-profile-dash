@@ -1,40 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Next.js 14 CarePulse
 
-## Getting Started
+![Project Screenshot](https://github.com/ladunjexa/nextjs14-carepulse/blob/main/public/assets/mockup.png)
 
-First, run the development server:
+## 🌐 Live Demo
+Explore the live demonstration of the project: [Professional_profile_dashboard_On_Netlify](https://elaborate-sopapillas-ca528e.netlify.app/)
 
+## 📝 Professional Profile Dashboard
+A responsive Professional Profile Dashboard built with Next.js, React, TypeScript, and Tailwind CSS. This application showcases a professional artist's profile with experience management, tabbed navigation, and detailed program information.
+
+
+## 🛠️ Tech Stack
+CarePulse is built using:
+- **Framework**: Next.js 13.3.4
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 3.3.3
+- **Data Fetching**: Native fetch with getServerSideProps
+- **Icons**: Lucide React 0.263.1
+
+
+### 🚀 Features
+- **Responsive Design**: Fully responsive layout that works on desktop, tablet, and mobile device.
+- **Interactive Experience Cards:**: Click on experience cards to view detailed information
+- **Tabbed Navigation**: Filter experiences by category (Training, Performance, etc.)
+- **Collapsible Sidebar**: Space-efficient navigation with icon-based menu
+- **Dynamic Detail Panel**: Sliding detail panel with comprehensive program information
+- **Professional UI**: Clean, modern design matching the provided wireframe
+
+1. **Clone Repository**:
+    ```bash
+    git clone https://github.com/samorobo/professional-profile-dash.git
+    ```
+2. **Install Dependencies**:
+    ```bash
+    cd professional-profile-dash
+    npm install
+    ```
+3. **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
+4. **Open**: Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+
+## 🔧 API Integration
+The application fetches data from two mock APIs:
+
+- **User Data**: https://jsonplaceholder.typicode.com/users/1
+    - **Used** for profile information (name, address, contact details)
+
+
+- **Posts Data**: https://jsonplaceholder.typicode.com/posts?userId=1
+      - **Transformed** into experience cards and program details
+
+## 📱 Responsive Design
+
+- **Desktop**: Full layout with sidebar and detail panel
+- **Tablet**: Adapted layout with collapsible elements
+- **Mobile**: Stacked layout with optimized touch interactions
+
+## 🎨 Key Components
+### Dashboard Component (pages/index.tsx)
+
+- **Main** container component
+- **Handles** state management for tabs and selected cards
+- **Implements** responsive layout logic
+- **Manages** API data integration
+
+### ExperienceCard Component (components/ExperienceCard.tsx)
+
+- **Reusable** card component for displaying experience items
+- **Handles** click events for detail panel
+- **Responsive** design with proper truncation
+
+### Layout Component (components/Layout.tsx)
+
+- **Provides** consistent page structure
+- **Manages** SEO meta tags
+- **Handles** global layout concerns
+
+## 🚀 Deployment
+
+### Deploy to Production (Manual)
+You can create an optimized production build with the following command:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deploy to Netlify
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1.  Build the project: ```npm run build```
+2.  Deploy the out folder to ```Netlify```
+3. Configure build settings:
+    - **Build** command:``` npm run build```
+  - **Publish** directory: ```.next```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Environment Variables
+No environment variables required for this project as it uses public APIs.
+### 🔍 Code Quality
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- **TypeScript**: Full type safety throughout the application
+- **ESLint**: Code linting with Next.js recommended rules
+- **Clean Architecture**: Separation of concerns with reusable components
+- **Performance**: Optimized with Next.js SSR and efficient re-renders
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📊 Performance Features
 
-## Learn More
+- **Server-side** rendering for faster initial page loads
+- **Optimized** images and icons
+- **Efficient** state management
+- **Minimal** bundle size with tree-shaking
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+1. **Fork** the repository
+2. **Create** a feature branch ```(git checkout -b feature/amazing-feature)```
+3. **Commit** your changes ```(git commit -m 'Add some amazing feature')```
+4. **Push** to the branch ```(git push origin feature/amazing-feature)```
+5. **Open** a Pull Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Deploy on Vercel
+## 🙏 Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Design** inspiration from the provided wireframe
+- **JSONPlaceholder** for mock API data
+- **Lucid**e React for beautiful icons
+- **Tailwind** CSS for utility-first styling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
+## 📞 Contact Us
+Connect with us on 
+- [LinkedIn](https://www.linkedin.com/in/godwin-samuel)
+- [instagram](https://www.instagram.com/godwin839/) 
