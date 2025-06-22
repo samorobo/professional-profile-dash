@@ -2,10 +2,11 @@ import React from 'react';
 import { CalendarDays, ChevronDown } from 'lucide-react';
 
 interface ExperienceDetailProps {
-  experience: any;
+  experience: { index: number };
   showProgramInfo: boolean;
   onToggleProgramInfo: () => void;
 }
+
 
 const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experience, showProgramInfo, onToggleProgramInfo }) => {
   if (!experience) return <div className="h-full" />;
@@ -39,7 +40,7 @@ const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experience, showPro
     <div className="flex flex-col justify-between h-full items-center mt-6 lg:mt-[112px] w-full">
       {/* Card Section */}
       <div
-        className="bg-gray-900 border border-gray-200 rounded-lg shadow-lg p-6 min-h-[144px] flex flex-col justify-between cursor-pointer w-full mb-6"
+        className="bg-gray-900 -mt-2 border border-gray-200 rounded-lg shadow-lg p-6 min-h-[144px] flex flex-col justify-between cursor-pointer w-full mb-6"
         onClick={onToggleProgramInfo}
       >
         <div>
@@ -74,7 +75,7 @@ const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experience, showPro
 
       {/* Expanded Program Info */}
       {showProgramInfo && (
-        <div className="bg-white border-2 border-gray-200 p-6 rounded-lg text-gray-900 shadow-lg w-full">
+        <div className="bg-white border-2 border-gray-200 p-6 rounded-lg text-gray-900 shadow-lg w-full -mt-28 ">
           <h3 className="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wide">Program Info</h3>
           <div className="space-y-4 mb-6">
             <div>

@@ -23,16 +23,8 @@ interface User {
   };
 }
 
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
 interface DashboardProps {
   user: User | null;
-  posts: Post[];
 }
 
 const experienceData = [
@@ -40,7 +32,7 @@ const experienceData = [
   { id: 2, title: 'Creative Director', body: '', userId: 1 },
 ];
 
-const Dashboard: React.FC<DashboardProps> = ({ user, posts }) => {
+const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const [activeSidebar, setActiveSidebar] = useState(0);
   const [activeTab, setActiveTab] = useState('Training');
   const [selectedExperience, setSelectedExperience] = useState({ index: 0 });
@@ -73,15 +65,12 @@ const Dashboard: React.FC<DashboardProps> = ({ user, posts }) => {
         </div>
 
         <div className="flex flex-1 flex-col lg:flex-row">
-          {/* Sidebar */}
           <Sidebar activeIndex={activeSidebar} onChange={setActiveSidebar} />
-
-          {/* Main Content */}
           <div className="flex-1 px-4 sm:px-6 md:px-8 py-6">
             <ProfileHeader
               user={{
-                name: user.name || 'Anthony Fernandes',
-                location: user.address?.city + ', ' + user.address?.zipcode,
+                name: user.name,
+                location: user.address.city + ', ' + user.address.zipcode,
                 avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
               }}
               activeTab={activeTab}
@@ -89,7 +78,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, posts }) => {
             />
 
             <div className="flex flex-col lg:flex-row gap-6 mt-8">
-              {/* Experience List */}
               <div className="w-full lg:w-1/2">
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Experience</h2>
                 <ExperienceTabs
@@ -100,7 +88,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, posts }) => {
                 />
               </div>
 
-              {/* Experience Detail */}
               <div className="w-full lg:w-1/2">
                 <ExperienceDetail
                   experience={selectedExperience}
@@ -116,21 +103,15 @@ const Dashboard: React.FC<DashboardProps> = ({ user, posts }) => {
   );
 };
 
-// Data fetching with getServerSideProps
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const userRes = await fetch('https://jsonplaceholder.typicode.com/users/1');
-    const postsRes = await fetch('https://jsonplaceholder.typicode.com/posts?userId=1');
-
-    if (!userRes.ok || !postsRes.ok) throw new Error('API request failed');
-
+    if (!userRes.ok) throw new Error('API request failed');
     const user: User = await userRes.json();
-    const posts: Post[] = await postsRes.json();
 
     return {
       props: {
         user,
-        posts,
       },
     };
   } catch (err) {
@@ -138,7 +119,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     return {
       props: {
         user: null,
-        posts: [],
       },
     };
   }

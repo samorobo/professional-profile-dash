@@ -12,36 +12,98 @@ const tabs = [
   'Masterclass',
 ];
 
+interface ExperienceItem {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+}
+
 interface ExperienceTabsProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
-  experiences: any[];
+  experiences: ExperienceItem[];
   onExperienceClick: (index: number) => void;
 }
 
-const ExperienceTabs: React.FC<ExperienceTabsProps> = ({ activeTab, onTabChange, experiences, onExperienceClick }) => (
-  <div>
+
+
+const ExperienceTabs: React.FC<ExperienceTabsProps> = ({ 
+  activeTab, 
+  onTabChange, 
+  experiences, 
+  onExperienceClick 
+}) => (
+  <div className="w-full">
+    {/* Tab Navigation - Responsive */}
     <div className="border-b border-gray-200 mb-6">
-      <nav className="flex space-x-12">
+      {/* Desktop View */}
+      <nav className="hidden md:flex md:space-x-12">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => onTabChange(tab)}
-            className={`pb-3 text-sm font-medium  text-nowrap ${
-              activeTab === tab ? 'border-b-2 border-gray-900 text-gray-900' : 'text-gray-500 hover:text-gray-700'
+            className={`pb-3 text-sm font-medium whitespace-nowrap transition-colors duration-200 ${
+              activeTab === tab 
+                ? 'border-b-2 border-gray-900 text-gray-900' 
+                : 'text-gray-500 hover:text-gray-700'
             }`}
           >
             {tab}
           </button>
         ))}
       </nav>
+
+      {/* Mobile View - Horizontal Scrollable Carousel */}
+      <nav className="md:hidden">
+        <div className="flex overflow-x-auto scrollbar-hide pb-3 -mb-px">
+          <div className="flex space-x-6 px-4 min-w-max">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => onTabChange(tab)}
+                className={`pb-3 text-sm font-medium whitespace-nowrap transition-colors duration-200 flex-shrink-0 ${
+                  activeTab === tab 
+                    ? 'border-b-2 border-gray-900 text-gray-900' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
     </div>
-    <div className="flex flex-col gap-6">
-      {experiences.map((exp, idx) => (
-        <ExperienceCard key={idx} post={exp} index={idx} onClick={() => onExperienceClick(idx)} />
-      ))}
+
+    {/* Experience Cards Grid - Responsive */}
+    <div className="w-full">
+      {/* Desktop/Tablet - Grid Layout */}
+      <div className="hidden sm:flex sm:flex-col sm:gap-6">
+        {experiences.map((exp, idx) => (
+          <ExperienceCard 
+            key={idx} 
+            post={exp} 
+            index={idx} 
+            onClick={() => onExperienceClick(idx)} 
+          />
+        ))}
+      </div>
+
+      {/* Mobile - Single Column with Proper Spacing */}
+      <div className="flex flex-col gap-4 sm:hidden">
+        {experiences.map((exp, idx) => (
+          <div key={idx} className="w-full">
+            <ExperienceCard 
+              post={exp} 
+              index={idx} 
+              onClick={() => onExperienceClick(idx)} 
+            />
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 );
 
-export default ExperienceTabs; 
+export default ExperienceTabs;

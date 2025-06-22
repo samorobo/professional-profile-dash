@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Check, ChevronDown, MapPin } from 'lucide-react';
+import Image from 'next/image';
+
 
 const headerTabs = ['About', 'Media', 'Highlights', 'Experience'];
 
@@ -16,12 +18,19 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
   const roleOptions = ['CHURCH SINGER', 'ROCK SINGER'];
 
   return (
-    <div className="bg-gray-900 text-white px-4 sm:px-6 md:px-8 py-6 rounded-b-2xl mt-5 border border-t-8 border-t-gray-900 rounded-t-2xl mx-4 sm:mx-6 md:mx-8">
+    <div className="bg-gray-900  text-white px-4 sm:px-6 md:px-8 py-6 rounded-b-2xl -mt-1 border border-t-8 border-t-gray-900 rounded-t-2xl mx-4 sm:mx-6 md:mx-8">
       <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-0">
         {/* Left: Avatar + Info + Tabs */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 w-full">
           <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-gray-600 flex-shrink-0 border-4 border-white">
-            <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+          <Image
+  src={user.avatar}
+  alt={user.name}
+  width={128}
+  height={128}
+  className="w-full h-full object-cover"
+/>
+
           </div>
 
           <div className="flex flex-col text-center sm:text-left items-center sm:items-start w-full">
@@ -29,7 +38,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
             <div className="mb-4">
               <div className="flex items-center justify-center sm:justify-start space-x-2 mb-2">
                 <h1 className="text-2xl sm:text-3xl font-semibold">{user.name}</h1>
-                <Check className="text-green-200 w-5 h-5" />
+                <Check className="text-green-200  w-5 h-5" />
               </div>
               <div className="flex items-center justify-center sm:justify-start space-x-1 text-gray-300">
                 <MapPin className="w-4 h-4" />
@@ -110,8 +119,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ user, activeTab, onTabCha
           {/* Pricing */}
           <div className="text-center sm:text-right">
             <div className="text-lg font-semibold">
-              $100-$400{' '}
-              <span className="text-sm text-gray-400 ml-1">per group workshop</span>
+              $100-$400
+              <span className="text-sm text-gray-400 ml-2 text-nowrap">per group workshop</span>
             </div>
           </div>
         </div>
