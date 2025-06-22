@@ -1,0 +1,52 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .experience-card {
+    @apply bg-white border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-md transition-all duration-200 hover:border-gray-300;
+  }
+  
+  .sidebar-item {
+    @apply w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-gray-100 text-gray-900;
+  }
+  
+  .sidebar-item-inactive {
+    @apply text-gray-600 hover:bg-gray-50 hover:text-gray-900;
+  }
+  
+  .tab-button {
+    @apply py-2 px-1 border-b-2 font-medium text-sm transition-colors;
+  }
+  
+  .tab-active {
+    @apply border-gray-900 text-gray-900;
+  }
+  
+  .tab-inactive {
+    @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+  }
+  
+  .detail-panel {
+    @apply w-1/2 bg-gray-900 text-white p-6 min-h-screen transform transition-transform duration-300;
+  }
+  
+  .detail-panel-enter {
+    @apply translate-x-full;
+  }
+  
+  .detail-panel-enter-active {
+    @apply translate-x-0;
+  }
+}
