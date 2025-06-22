@@ -1,4 +1,4 @@
-# Next.js 14 CarePulse
+# Next.js 14 Professional profile dashboard
 
 
 ![Project_Screenshot](https://github.com/user-attachments/assets/87bb67e6-48b1-4025-a00f-2cd3e28d86fb)
