@@ -35,8 +35,9 @@ const experienceData = [
 const Dashboard: React.FC<DashboardProps> = ({ user }) => {
   const [activeSidebar, setActiveSidebar] = useState(0);
   const [activeTab, setActiveTab] = useState('About');
-  const [selectedExperience, setSelectedExperience] = useState({ index: 0 });
+  const [selectedExperience, setSelectedExperience] = useState<{ index: number } | null>(null);
   const [showProgramInfo, setShowProgramInfo] = useState(false);
+  const [showDetailPanel, setShowDetailPanel] = useState(false);
 
   if (!user) {
     return (
@@ -84,16 +85,22 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                   activeTab={activeTab}
                   onTabChange={setActiveTab}
                   experiences={experienceData}
-                  onExperienceClick={(idx) => setSelectedExperience({ index: idx })}
+                  onExperienceClick={(idx) => {
+                    setSelectedExperience({ index: idx });
+                    setShowDetailPanel(true);
+                  }}
                 />
               </div>
 
               <div className="w-full lg:w-1/2">
-                <ExperienceDetail
-                  experience={selectedExperience}
-                  showProgramInfo={showProgramInfo}
-                  onToggleProgramInfo={() => setShowProgramInfo((prev) => !prev)}
-                />
+                {showDetailPanel && selectedExperience !== null && (
+                  <ExperienceDetail
+                    experience={selectedExperience}
+                    showProgramInfo={showProgramInfo}
+                    onToggleProgramInfo={() => setShowProgramInfo((prev) => !prev)}
+                    onCloseDetailPanel={() => setShowDetailPanel(false)}
+                  />
+                )}
               </div>
             </div>
           </div>

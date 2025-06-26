@@ -5,9 +5,10 @@ interface ExperienceDetailProps {
   experience: { index: number };
   showProgramInfo: boolean;
   onToggleProgramInfo: () => void;
+  onCloseDetailPanel: () => void;
 }
 
-const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experience, showProgramInfo, onToggleProgramInfo }) => {
+const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experience, showProgramInfo, onToggleProgramInfo, onCloseDetailPanel }) => {
   if (!experience) return <div className="h-full" />;
 
   const detail = [
@@ -38,16 +39,27 @@ const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ experience, showPro
   return (
     <div className="flex flex-col justify-between h-full items-center mt-6 lg:mt-[112px] w-full">
   
+  {/* detailed card section */}
       <div
-        className="bg-gray-900 -mt-2 border border-gray-200 rounded-lg shadow-lg p-6 min-h-[144px] flex flex-col justify-between cursor-pointer w-full mb-4"
+        className="bg-gray-900 -mt-2 border border-gray-200 rounded-lg shadow-lg p-6 min-h-[144px] flex flex-col justify-between cursor-pointer w-full mb-4 relative"
         onClick={onToggleProgramInfo}
       >
+        <button
+          className="absolute top-2 right-2 text-white bg-gray-700 rounded-full p-1 hover:bg-gray-600 z-10"
+          onClick={(e) => {
+            e.stopPropagation();
+            onCloseDetailPanel();
+          }}
+          aria-label="Close detail panel"
+        >
+          ×
+        </button>
         <div>
           <div className="flex justify-between items-center flex-wrap gap-y-2">
             <div className="text-sm text-white uppercase">Young Artist Program | Program</div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 mr-4">
               <CalendarDays className="w-4 h-4 text-white" />
-              <span className="text-sm text-white">{d.date}</span>
+              <span className="text-sm text-white ">{d.date}</span>
             </div>
           </div>
           <div className="pt-4">
